@@ -1,0 +1,13 @@
+{
+  "name": "backend-entrega1",
+  "version": "1.0.0",
+  "description": "Servidor con Express para gestión de productos y carritos",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
