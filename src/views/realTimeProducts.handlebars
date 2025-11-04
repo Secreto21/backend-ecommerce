@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos en Tiempo Real</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+      h1 { margin-bottom: 1rem; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+      .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+      ul { list-style: none; padding: 0; }
+      li { border: 1px solid #eee; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+      label { display: block; margin-top: 8px; font-weight: 600; }
+      input, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+      button { margin-top: 12px; padding: 8px 12px; cursor: pointer; }
+      .empty { color: #777; }
+    </style>
+  </head>
+  <body>
+    <h1>Productos (tiempo real)</h1>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Listado</h2>
+        {{#if products.length}}
+          <ul id="products-list">
+            {{#each products}}
+              <li data-id="{{this.id}}">
+                <strong>{{this.title}}</strong> — ${{this.price}}<br/>
+                <small>ID: {{this.id}} | Código: {{this.code}} | Stock: {{this.stock}} | Categoría: {{this.category}}</small>
+                <p>{{this.description}}</p>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <p class="empty" id="empty-msg">No hay productos cargados.</p>
+          <ul id="products-list" hidden></ul>
+        {{/if}}
+      </section>
+
+      <section class="card">
+        <h2>Administrar</h2>
+        <form id="create-form">
+          <h3>Crear producto</h3>
+          <label>Título
+            <input type="text" name="title" required />
+          </label>
+          <label>Descripción
+            <textarea name="description" required></textarea>
+          </label>
+          <label>Código
+            <input type="text" name="code" required />
+          </label>
+          <label>Precio
+            <input type="number" name="price" step="0.01" required />
+          </label>
+          <label>Stock
+            <input type="number" name="stock" required />
+          </label>
+          <label>Categoría
+            <input type="text" name="category" required />
+          </label>
+          <label>Thumbnails (URLs separadas por coma)
+            <input type="text" name="thumbnails" placeholder="img/1.png,img/2.png" />
+          </label>
+          <button type="submit">Crear</button>
+        </form>
+
+        <hr/>
+
+        <form id="delete-form">
+          <h3>Eliminar producto</h3>
+          <label>ID del producto
+            <input type="number" name="id" required />
+          </label>
+          <button type="submit">Eliminar</button>
+        </form>
+      </section>
+    </div>
+
+    <p>
+      Volver a <a href="/">Home</a>
+    </p>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/realtime.js"></script>
+  </body>
+</html>

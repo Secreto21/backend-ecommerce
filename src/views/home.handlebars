@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Productos</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+      h1 { margin-bottom: 1rem; }
+      ul { list-style: none; padding: 0; }
+      li { border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+      .empty { color: #777; }
+    </style>
+  </head>
+  <body>
+    <h1>Productos</h1>
+
+    {{#if products.length}}
+      <ul>
+        {{#each products}}
+          <li>
+            <strong>{{this.title}}</strong> — ${{this.price}}<br/>
+            <small>ID: {{this.id}} | Código: {{this.code}} | Stock: {{this.stock}} | Categoría: {{this.category}}</small>
+            <p>{{this.description}}</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty">No hay productos cargados.</p>
+    {{/if}}
+
+    <p>
+      Vista en tiempo real: <a href="/realtimeproducts">/realtimeproducts</a>
+    </p>
+  </body>
+</html>

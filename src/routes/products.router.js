@@ -32,6 +32,11 @@ router.post("/", async (req, res) => {
     thumbnails: thumbnails || [],
   });
 
+  // Emitir actualización a todos los clientes conectados
+  const io = req.app.get("io");
+  const products = await manager.getProducts();
+  io.emit("productsUpdated", products);
+
   res.status(201).json(newProduct);
 });
 
@@ -45,6 +50,12 @@ router.put("/:pid", async (req, res) => {
 router.delete("/:pid", async (req, res) => {
   const id = parseInt(req.params.pid);
   await manager.deleteProduct(id);
+
+  // Emitir actualización a todos los clientes conectados
+  const io = req.app.get("io");
+  const products = await manager.getProducts();
+  io.emit("productsUpdated", products);
+
   res.json({ message: "Producto eliminado correctamente" });
 });
 

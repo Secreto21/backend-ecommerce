@@ -1,6 +1,6 @@
 # Backend Entrega 1 - Gestión de Productos y Carritos
 
-Este proyecto es un servidor en **Node.js** con **Express**, diseñado para gestionar productos y carritos de compra, cumpliendo la consigna de la Entrega N°1 de Coderhouse.
+Este proyecto es un servidor en **Node.js** con **Express**, diseñado para gestionar productos y carritos de compra.
 
 ---
 
