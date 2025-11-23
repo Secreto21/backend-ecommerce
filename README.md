@@ -61,6 +61,12 @@ El servidor escuchará en el puerto **8080**.
 | PUT    | `/:pid` | Actualiza un producto existente | `{ "price": 0, "stock": 0 }`                                                                                                 |
 | DELETE | `/:pid` | Elimina un producto por su id   | -                                                                                                                            |
 
+### Productos en Tiempo Real (`/realtimeproducts`)
+
+| Método | Ruta                 | Descripción                   | Body |
+| ------ | -------------------- | ----------------------------- | ---- |
+| GET    | `/realtimeproducts`   | Muestra productos en tiempo real | -    |
+
 ---
 
 ### Carritos (`/api/carts`)

@@ -28,19 +28,19 @@ export default class ProductManager {
     return newProduct;
   }
 
-  async updateProduct(id, data) {
+  async updateProduct(id, updatedProduct) {
     const products = await this.getProducts();
     const index = products.findIndex(p => p.id === id);
     if (index === -1) return null;
 
-    products[index] = { ...products[index], ...data, id };
+    products[index] = { ...products[index], ...updatedProduct };
     await fs.promises.writeFile(this.path, JSON.stringify(products, null, 2));
     return products[index];
   }
 
   async deleteProduct(id) {
     const products = await this.getProducts();
-    const filtered = products.filter(p => p.id !== id);
-    await fs.promises.writeFile(this.path, JSON.stringify(filtered, null, 2));
+    const updatedProducts = products.filter(p => p.id !== id);
+    await fs.promises.writeFile(this.path, JSON.stringify(updatedProducts, null, 2));
   }
 }

@@ -10,6 +10,8 @@
       ul { list-style: none; padding: 0; }
       li { border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
       .empty { color: #777; }
+      .pagination { margin-top: 16px; }
+      .pagination a { margin-right: 8px; text-decoration: none; }
     </style>
   </head>
   <body>
@@ -27,6 +29,18 @@
       </ul>
     {{else}}
       <p class="empty">No hay productos cargados.</p>
+    {{/if}}
+
+    {{#if pagination}}
+      <div class="pagination">
+        <span>Página {{pagination.page}} de {{pagination.totalPages}}</span><br/>
+        {{#if pagination.hasPrevPage}}
+          <a href="{{pagination.prevLink}}">← Anterior</a>
+        {{/if}}
+        {{#if pagination.hasNextPage}}
+          <a href="{{pagination.nextLink}}">Siguiente →</a>
+        {{/if}}
+      </div>
     {{/if}}
 
     <p>
