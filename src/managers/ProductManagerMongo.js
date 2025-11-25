@@ -1,3 +1,4 @@
+//ProductManagerMongo.js
 import Product from '../models/Product.js';
 
 export default class ProductManagerMongo {
@@ -42,3 +43,4 @@ export default class ProductManagerMongo {
     }
   }
 }
+// End of ProductManagerMongo.js

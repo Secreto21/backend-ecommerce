@@ -1,3 +1,4 @@
+//views.router.js
 import { Router } from "express";
 
 import ProductManager from "../managers/ProductManager.js";
@@ -96,3 +97,4 @@ router.get('/carts/:cid', async (req, res) => {
 });
 
 export default router;
+// End of views.router.js

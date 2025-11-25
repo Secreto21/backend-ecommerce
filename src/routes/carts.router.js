@@ -1,3 +1,4 @@
+//carts.router.js
 import { Router } from "express";
 import CartManager from "../managers/CartManager.js";
 import ProductManager from "../managers/ProductManager.js";
@@ -111,3 +112,4 @@ router.delete("/:cid", async (req, res) => {
 // Implementar métodos para manejar carritos
 
 export default router;
+// End of carts.router.js

@@ -1,3 +1,4 @@
+//CartManager.js
 import fs from "fs";
 
 export default class CartManager {
@@ -89,3 +90,4 @@ export default class CartManager {
     return carts[index];
   }
 }
+// End of CartManager.js

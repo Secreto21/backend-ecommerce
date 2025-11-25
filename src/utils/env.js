@@ -1,3 +1,4 @@
+//env.js
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -13,3 +14,4 @@ export const MONGO_DB_NAME = process.env.MONGO_DB_NAME || "";
 if (USE_MONGO && !MONGO_URI) {
   console.warn("USE_MONGO=true pero MONGO_URI está vacío. Añade MONGO_URI en un archivo .env local.");
 }
+// End of env.js

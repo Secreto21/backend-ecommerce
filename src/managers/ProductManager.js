@@ -1,3 +1,4 @@
+//ProductManager.js
 import fs from "fs";
 
 export default class ProductManager {
@@ -44,3 +45,4 @@ export default class ProductManager {
     await fs.promises.writeFile(this.path, JSON.stringify(updatedProducts, null, 2));
   }
 }
+// End of ProductManager.js

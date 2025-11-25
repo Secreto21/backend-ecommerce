@@ -1,3 +1,4 @@
+//migratetomongo.js
 import fs from 'fs';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -65,3 +66,4 @@ migrate().catch(err => {
   console.error('Error en migración:', err);
   process.exit(1);
 });
+// End of migratetomongo.js

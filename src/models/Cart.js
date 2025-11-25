@@ -1,3 +1,4 @@
+//Cart.js
 import mongoose from 'mongoose';
 
 const cartProductSchema = new mongoose.Schema({
@@ -11,3 +12,4 @@ const cartSchema = new mongoose.Schema({
 
 const Cart = mongoose.model('Cart', cartSchema);
 export default Cart;
+// End of Cart.js

@@ -1,3 +1,4 @@
+//CartManagerMongo.js
 import Cart from '../models/Cart.js';
 import mongoose from 'mongoose';
 
@@ -88,3 +89,4 @@ export default class CartManagerMongo {
     }
   }
 }
+// End of CartManagerMongo.js

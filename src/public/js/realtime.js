@@ -1,3 +1,4 @@
+//realtime.js
 (() => {
   const $ = (sel) => document.querySelector(sel);
   const listEl = $("#products-list");
@@ -83,23 +84,26 @@
   }
 
   const deleteForm = $("#delete-form");
-  if (deleteForm) {
-    deleteForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const id = Number(new FormData(deleteForm).get("id"));
-      if (!id) return alert("ID inválido");
-      try {
-        const res = await fetch(`/api/products/${id}`, { method: "DELETE" });
-        if (!res.ok) {
-          const err = await res.json().catch(() => ({}));
-          alert("Error al eliminar: " + (err.error || res.statusText));
-          return;
-        }
-        deleteForm.reset();
-      } catch (err) {
-        console.error(err);
-        alert("Error de red al eliminar producto");
+if (deleteForm) {
+  deleteForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const id = new FormData(deleteForm).get("id").trim();
+    if (!id) return alert("ID inválido");
+
+    try {
+      const res = await fetch(`/api/products/${id}`, { method: "DELETE" });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        alert("Error al eliminar: " + (err.error || res.statusText));
+        return;
       }
-    });
-  }
+      deleteForm.reset();
+    } catch (err) {
+      console.error(err);
+      alert("Error de red al eliminar producto");
+    }
+  });
+}
+
 })();
+// End of realtime.js
